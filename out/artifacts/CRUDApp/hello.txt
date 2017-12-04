@@ -1,0 +1,1 @@
+{"name":"Swain Shrestha","gender":"Male","age":24,"employeeId":4,"department":"TEch","position":"CEO","salary":20000}

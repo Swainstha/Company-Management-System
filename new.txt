@@ -1,5 +1,0 @@
-{"name":"Sushil Khadka","gender":"Male","age":22,"employeeId":2,"department":"Technology","position":"Software Engineer Associate","salary":20000}
-{"name":"Shovan Raj Shrestha","gender":"Male","age":22,"employeeId":3,"department":"Technology","position":"Software Engineer Associate","salary":20000}
-{"name":"Sajan Amatya","gender":"Male","age":22,"employeeId":4,"department":"Technology","position":"Software Engineer Associate","salary":20000}
-{"name":"Nischal Rai","gender":"Male","age":22,"employeeId":5,"department":"TechServices","position":"SOftware Engineer","salary":20000}
-{"name":"Swain Shrestha","gender":"Male","age":22,"employeeId":1,"department":"Tech","position":"Peon","salary":20000}

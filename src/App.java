@@ -74,7 +74,7 @@ public class App {
         Employee employee = dataCRUD.readFromFile(name);
         boolean loop = true;
         while(loop) {
-            System.out.println("1. Name\t2.Age\t3.Gender\t4.EmployeeID\n5.Department\t6.Position\t7.Salary");
+            System.out.println("1. Name\t2. Age\t3. Gender\t4. EmployeeID\n5. Department\t6. Position\t7. Salary\n0. Exit");
             Scanner scan = new Scanner(System.in);
             int choice = scan.nextInt();
             scan.nextLine();

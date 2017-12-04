@@ -18,7 +18,7 @@ public class DataCRUD {
     /***********************************************************************************/
 
     /** Read the json file and map it into a list of Employee class objects */
-    public List<Employee> readFromFile() {
+    public List<Employee> readFromFile() {    //Function Overloading
         List<Employee> empArray = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(new File("hello.txt")))) {
             String line;
@@ -41,7 +41,7 @@ public class DataCRUD {
     /**********************************************************************************************/
     /** Read the info of a specific person from the file*/
 
-    public Employee readFromFile(String name) {
+    public Employee readFromFile(String name) {     //Function Overloading
         try (BufferedReader reader = new BufferedReader(new FileReader(new File("hello.txt")))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -66,6 +66,7 @@ public class DataCRUD {
     /***********************************************************************************************/
 
     /** Save an employee information to a file */
+
     public void saveEmployeeToFile(Employee employee) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File("hello.txt"), true))) {
 
@@ -80,9 +81,9 @@ public class DataCRUD {
 
     /*********************************************************************************************/
 
-    /** matching the name of the employee to delete its content from the file
-    first the info of all employees except the employee to be deleted are copied to a new file new.txt then
-    later the whole content of file is copied to hello.txt(original file) */
+    /** Each of the employees information are converted into employee objects,then all
+     * of the employee objects except the one to be deleted  are converted to json format and rewritten in the same file
+     */
 
     public void deleteEmployee(String name, int ID) {
         try (BufferedReader reader = new BufferedReader(new FileReader(new File("hello.txt")));
@@ -97,7 +98,11 @@ public class DataCRUD {
             }
             writer.close();
             reader.close();
-            this.copyFileToFile("new.txt", "hello.txt");
+            File file = new File("hello.txt");  //deleting the original file
+            file.delete();
+            file = new File("new.txt");
+            file.renameTo(new File("hello.txt"));  //renaming the new updated file to hello.txt
+            //this.copyFileToFile("new.txt", "hello.txt");
         } catch (FileNotFoundException f) {
             f.printStackTrace();
         } catch (IOException e) {
@@ -109,10 +114,8 @@ public class DataCRUD {
 
     /**********************************************************************************************/
 
-    /** When the required match for the employee name is found all the new info of the required employee is copied to the new file
-     * instead of the info of the  info of the required employee from the read file
-     * otherwise other employee's info are copied from the read file to the new file
-     * later the new file is recopied to the hello.txt
+    /** Each of the employees information are converted into employee objects, the required employee's info is updated,then all
+     * of the employee objects are converted to json format and rewritten in the same file
      */
     public void updateInFile(String name, Employee employee) {
         try (BufferedReader reader = new BufferedReader(new FileReader(new File("hello.txt")));
@@ -129,14 +132,18 @@ public class DataCRUD {
             }
             writer.close();
             reader.close();
-            this.copyFileToFile("new.txt", "hello.txt");
+
+            File file = new File("hello.txt");  //deleting the original file
+            file.delete();
+            file = new File("new.txt");
+            file.renameTo(new File("hello.txt"));  //renaming the new updated file to hello.txt
+
+            //this.copyFileToFile("new.txt", "hello.txt");
 
         } catch (FileNotFoundException f) {
             f.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ArrayIndexOutOfBoundsException a) {
-            a.printStackTrace();
         }
     }
 
